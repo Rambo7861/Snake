@@ -4,6 +4,7 @@ import com.example.snake.Bane.BanePane;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.geometry.BoundingBox;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
@@ -77,7 +78,9 @@ public class Game extends HelloApplication {
         }
     }
 
-    public void sjekkKollisjon() {
+
+
+    /* public void sjekkKollisjon() {
         // sjekker om hode kolliderer med kroppen
         for (int i = bodyParts; i > 0; i--) {
             if ((x[0] == x[i]) && (y[0] == y[i])) {
@@ -105,11 +108,7 @@ public class Game extends HelloApplication {
         if (!running) {
             Timer = false;
         }
-    }
-
-
-
-
+    } */
 
 
     // game loop

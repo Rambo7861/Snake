@@ -1,5 +1,7 @@
 package Player;
 
+import com.example.snake.Bane.Vegg;
+import javafx.geometry.BoundingBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -20,6 +22,13 @@ public class Player1 extends ImageView {
         this.setY(905);
         this.setFitHeight(25);
         this.setFitWidth(25);
+    }
+
+    BoundingBox boks = new BoundingBox(posX, posY, 20, 20);
+
+    if(Player1.intersects(Vegg)) {
+        // også skjer det noe her
+
     }
 
     public void pressHandler(KeyEvent e) {
