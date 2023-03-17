@@ -12,8 +12,24 @@ import javafx.util.Duration;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Timer;
+
+import static javafx.scene.input.KeyCode.X;
 
 public class Game extends HelloApplication {
+
+    static final int SCREEN_WIDTH = 600;
+    static final int SCREEN_HEIGHT = 600;
+    static final int UNIT_SIZE = 25;
+    static final int GAME_UNITS = (SCREEN_WIDTH * SCREEN_HEIGHT) / UNIT_SIZE;
+    final int x[] = new int[GAME_UNITS];
+    final int y[] = new int[GAME_UNITS];
+    int bodyParts = 6;
+    int applesEaten;
+    int appleX;
+    int appleY;
+    boolean running = false;
+    boolean Timer = false;
 
     int test = 0;
     Text score = new Text("Score: "  + test);
@@ -60,6 +76,41 @@ public class Game extends HelloApplication {
             stage.close();
         }
     }
+
+    public void sjekkKollisjon() {
+        // sjekker om hode kolliderer med kroppen
+        for (int i = bodyParts; i > 0; i--) {
+            if ((x[0] == x[i]) && (y[0] == y[i])) {
+                running = false;
+            }
+        }
+
+        // sjekker om treffer venstre kant
+        if (x[0] < 0) {
+            running = false;
+        }
+        // sjekker om hode berører høyre kant
+        if (x[0] > SCREEN_WIDTH) {
+            running = false;
+        }
+        // sjekker om hode berører toppkant
+        if (y[0] < 0) {
+            running = false;
+        }
+        // sjekker om hode berører nederstekant
+        if (x[0] > SCREEN_HEIGHT) {
+            running = false;
+        }
+
+        if (!running) {
+            Timer = false;
+        }
+    }
+
+
+
+
+
 
     // game loop
     public void Update(){

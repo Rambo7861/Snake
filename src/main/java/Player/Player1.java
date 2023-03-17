@@ -6,6 +6,8 @@ import javafx.scene.input.KeyEvent;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+import static javafx.scene.input.KeyCode.X;
+
 public class Player1 extends ImageView {
     int posX = 15;
     int posY = 15;
